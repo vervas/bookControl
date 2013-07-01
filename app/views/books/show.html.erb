@@ -1,6 +1,10 @@
 <p id="notice"><%= notice %></p>
 
 <p>
+  <img width="100px" src='<%= @book.img_url %>'/>
+</p>
+
+<p>
   <b>Isbn:</b>
   <%= @book.isbn %>
 </p>
@@ -26,13 +30,8 @@
 </p>
 
 <p>
-  <b>Img url:</b>
-  <%= @book.img_url %>
-</p>
-
-<p>
-  <b>Amazon link:</b>
-  <%= @book.amazon_link %>
+<a href='<%= @book.amazon_link %>'>Amazon link</a>
+  
 </p>
 
 <p>
