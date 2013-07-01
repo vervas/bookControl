@@ -97,6 +97,7 @@ body {
         background: url("../images/bg_noise.jpg") repeat 0 0;
         padding-top: 20px;
         padding-bottom: 60px;
+        margin: 0 auto;
       }
       .content {
         border: 1px solid #b7b7b7;

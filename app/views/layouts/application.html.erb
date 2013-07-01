@@ -48,11 +48,16 @@
                 </ul>
               </li>
             </ul>
-            <form class="navbar-form pull-right">
+           <!--  <form class="navbar-form pull-right">
               <input class="span2" type="text" placeholder="Email">
               <input class="span2" type="password" placeholder="Password">
               <button type="submit" class="btn">Sign in</button>
-            </form>
+            </form> -->
+                <%= form_for(resource, :as => resource_name, :url => session_path(resource_name), :html => { :class => 'navbar-form pull-right' }) do |f| %>
+                <%= f.email_field :email, :autofocus => true, :html => { :class => 'span2' } %>
+                <%= f.password_field :password, :html => { :class => 'span2' } %>
+                <%= f.submit "Sign in", :html => { :class => 'btn' } %>
+            <% end %>
           </div>
      
         </div>
@@ -65,7 +70,7 @@
               <input type="text" class="search-query" placeholder="Search">
             </form>
         </header>        
-        <div class="content">
+    <div class="content">
     <%= yield %>
     </div>
     </div> <!-- /container -->
