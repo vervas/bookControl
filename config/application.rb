@@ -59,8 +59,13 @@ module Bookcontrol
     # parameters by using an attr_accessible or attr_protected declaration.
     # config.active_record.whitelist_attributes = true
 
+
     # Enable the asset pipeline
     config.assets.enabled = true
+
+    config.assets.precompile += %w(normalize.css bootstrap.css bootstrap-responsive.css bootstrap.js bootstrap.min.css bootstrap-responsive.min.css bootstrap.min.js)
+
+    config.assets.compile = true
 
     # Version of your assets, change this if you want to expire all your assets
     config.assets.version = '1.0'
