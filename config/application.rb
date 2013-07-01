@@ -63,7 +63,7 @@ module Bookcontrol
     # Enable the asset pipeline
     config.assets.enabled = true
 
-    config.assets.precompile += %w( bootstrap.css bootstrap-responsive.css bootstrap.js bootstrap.min.css bootstrap-responsive.min.css bootstrap.min.js)
+    config.assets.precompile += %w(normalize.css bootstrap.css bootstrap-responsive.css bootstrap.js bootstrap.min.css bootstrap-responsive.min.css bootstrap.min.js)
 
     config.assets.compile = true
 
