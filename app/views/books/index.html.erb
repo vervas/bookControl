@@ -1,91 +1,38 @@
-<div class="navbar navbar-fixed-top">
-      <div class="navbar-inner">
-        <div class="container">
-     
-          <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
-          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </a>
-     
-          <!-- Be sure to leave the brand out there if you want it shown -->
-          <a class="brand" href="#">bookControl</a>
-     
-          <!-- Everything you want hidden at 940px or less, place within here -->
-          <div class="nav-collapse collapse">
-            <!-- .nav, .navbar-search, .navbar-form, etc -->
-            <ul class="nav">
-              <li class="active"><a href="#">Home</a></li>
-              <li><a href="#about">About</a></li>
-              <li><a href="#contact">Contact</a></li>
-              <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
-                <ul class="dropdown-menu">
-                  <li><a href="#">Action</a></li>
-                  <li><a href="#">Another action</a></li>
-                  <li><a href="#">Something else here</a></li>
-                  <li class="divider"></li>
-                  <li class="nav-header">Nav header</li>
-                  <li><a href="#">Separated link</a></li>
-                  <li><a href="#">One more separated link</a></li>
-                </ul>
-              </li>
-            </ul>
-            <form class="navbar-form pull-right">
-              <input class="span2" type="text" placeholder="Email">
-              <input class="span2" type="password" placeholder="Password">
-              <button type="submit" class="btn">Sign in</button>
-            </form>
-          </div>
-     
-        </div>
-      </div>
-    </div>    
-    <div class="wrapper">
-        <header>
-            <a href="#" class="logo">cloudControl</a>
-            <form class="navbar-search pull-right">
-              <input type="text" class="search-query" placeholder="Search">
-            </form>
-        </header>        
-        <div class="content">
-            <h1>Listing books</h1>
+
+<h1>Listing books</h1>
 
 
-            <table class="table-striped">
-              <tr>
-                <th>Isbn</th>
-                <th>Title</th>
-                <th>Author</th>
-                <th>Publisher</th>
-                <th>Category</th>
-                <th>Amazon link</th>
-                <th>Proposal</th>
-                <th></th>
-                <th></th>
-                <th></th>
-              </tr>
+<table class="table-striped">
+  <tr>
+    <th>Isbn</th>
+    <th>Title</th>
+    <th>Author</th>
+    <th>Publisher</th>
+<th>Category</th>
+    <th>Amazon link</th>
+    <th>Proposal</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
 
-            <% @books.each do |book| %>
-              <tr>
-                  <td><img width="100px" src='<%= book.img_url %>'/></td>
-                <td><%= book.isbn %></td>
-                <td><%= book.title %></td>
-                <td><%= book.author %></td>
-                <td><%= book.publisher %></td>
-                <td><%= book.category %></td>
-                <td><a href='<%= book.amazon_link %>'>Amazon</a></td>
-                <td><%= book.proposal %></td>
-                <td><%= link_to 'Show', book %></td>
-                <td><%= link_to 'Edit', edit_book_path(book) %></td>
-                <td><%= link_to 'Destroy', book, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-              </tr>
-            <% end %>
-            </table>
+<% @books.each do |book| %>
+  <tr>
+      <td><img width="100px" src='<%= book.img_url %>'/></td>
+    <td><%= book.isbn %></td>
+    <td><%= book.title %></td>
+    <td><%= book.author %></td>
+    <td><%= book.publisher %></td>
+    <td><%= book.category %></td>
+    <td><a href='<%= book.amazon_link %>'>Amazon</a></td>
+    <td><%= book.proposal %></td>
+    <td><%= link_to 'Show', book %></td>
+    <td><%= link_to 'Edit', edit_book_path(book) %></td>
+    <td><%= link_to 'Destroy', book, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
 
-            <br />
+<br />
 
-            <%= link_to 'New Book', new_book_path %>
-        </div>
-    </div> <!-- /container -->
+<%= link_to 'New Book', new_book_path %>
