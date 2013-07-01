@@ -1,0 +1,9 @@
+production:
+  sessions:
+    default:
+      database: cc_jjXdSDXxyfmy
+      hosts:
+        - dbs001.mongosoup.de
+      username: jjXdSDXxyfmy
+      password: IoyScJNfdDvQi
+
