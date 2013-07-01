@@ -14,8 +14,8 @@
 @import url(normalize.css);
 @font-face {
   font-family: 'WebSymbols';
-  src: url("fonts/websymbols_regular.eot");
-  src: url("fonts/websymbols_regular.eot?#iefix") format("embedded-opentype"), url("fonts/websymbols_regular.woff") format("woff"), url("fonts/websymbols_regular.ttf") format("truetype"), url("fonts/websymbols_regular.svg#WebSymbols") format("svg");
+  src: url("websymbols_regular.eot");
+  src: url("websymbols_regular.eot?#iefix") format("embedded-opentype"), url("websymbols_regular.woff") format("woff"), url("websymbols_regular.ttf") format("truetype"), url("websymbols_regular.svg#WebSymbols") format("svg");
   font-weight: normal;
   font-style: normal;
 }
@@ -26,44 +26,44 @@
 
 @font-face {
   font-family: 'TitilliumText';
-  src: url("fonts/TitilliumText22L002-webfont.eot");
-  src: url("fonts/TitilliumText22L002-webfont.eot?#iefix") format("embedded-opentype"), url("fonts/TitilliumText22L002-webfont.woff") format("woff"), url("fonts/TitilliumText22L002-webfont.ttf") format("truetype"), url("fonts/TitilliumText22L002-webfont.svg#TitilliumText22L002") format("svg");
+  src: url("TitilliumText22L002-webfont.eot");
+  src: url("TitilliumText22L002-webfont.eot?#iefix") format("embedded-opentype"), url("TitilliumText22L002-webfont.woff") format("woff"), url("TitilliumText22L002-webfont.ttf") format("truetype"), url("TitilliumText22L002-webfont.svg#TitilliumText22L002") format("svg");
   font-weight: 200;
   font-style: normal;
 }
 
 @font-face {
   font-family: 'TitilliumText';
-  src: url("fonts/TitilliumText22L003-webfont.eot");
-  src: url("fonts/TitilliumText22L003-webfont.eot?#iefix") format("embedded-opentype"), url("fonts/TitilliumText22L003-webfont.woff") format("woff"), url("fonts/TitilliumText22L003-webfont.ttf") format("truetype"), url("fonts/TitilliumText22L003-webfont.svg#TitilliumText22L003") format("svg");
+  src: url("TitilliumText22L003-webfont.eot");
+  src: url("TitilliumText22L003-webfont.eot?#iefix") format("embedded-opentype"), url("TitilliumText22L003-webfont.woff") format("woff"), url("TitilliumText22L003-webfont.ttf") format("truetype"), url("TitilliumText22L003-webfont.svg#TitilliumText22L003") format("svg");
   font-weight: 300;
   font-style: normal;
 }
 
 @font-face {
   font-family: 'TitilliumText';
-  src: url("fonts/TitilliumText22L004-webfont.eot");
-  src: url("fonts/TitilliumText22L004-webfont.eot?#iefix") format("embedded-opentype"), url("fonts/TitilliumText22L004-webfont.woff") format("woff"), url("fonts/TitilliumText22L004-webfont.ttf") format("truetype"), url("fonts/TitilliumText22L004-webfont.svg#TitilliumText22L004") format("svg");
+  src: url("TitilliumText22L004-webfont.eot");
+  src: url("TitilliumText22L004-webfont.eot?#iefix") format("embedded-opentype"), url("TitilliumText22L004-webfont.woff") format("woff"), url("TitilliumText22L004-webfont.ttf") format("truetype"), url("TitilliumText22L004-webfont.svg#TitilliumText22L004") format("svg");
   font-weight: 400;
   font-style: normal;
 }
 
 @font-face {
   font-family: 'TitilliumText';
-  src: url("fonts/TitilliumText22L005-webfont.eot");
-  src: url("fonts/TitilliumText22L005-webfont.eot?#iefix") format("embedded-opentype"), url("fonts/TitilliumText22L005-webfont.woff") format("woff"), url("fonts/TitilliumText22L005-webfont.ttf") format("truetype"), url("fonts/TitilliumText22L005-webfont.svg#TitilliumText22L005") format("svg");
+  src: url("TitilliumText22L005-webfont.eot");
+  src: url("TitilliumText22L005-webfont.eot?#iefix") format("embedded-opentype"), url("TitilliumText22L005-webfont.woff") format("woff"), url("TitilliumText22L005-webfont.ttf") format("truetype"), url("TitilliumText22L005-webfont.svg#TitilliumText22L005") format("svg");
   font-weight: 500;
   font-style: normal;
 }
 
 html {
-  background: url("images/bg_noise.jpg") repeat 0 0;
+  background: url("bg_noise.jpg") repeat 0 0;
   height: 100%;
   font: 62.5%/20pt "Helvetica Neue", Arial, Helvetica, Geneva, sans-serif;
 }
 
 html.wooden {
-  background: url("images/wood.png") repeat 0 0;
+  background: url("wood.png") repeat 0 0;
 }
 
 header {
@@ -84,7 +84,7 @@ header {
 }
 
 header .logo {
-  background: url("images/logo.png") no-repeat;
+  background: url("logo.png") no-repeat;
   background-size: 75px;
   display: inline-block;
   height: 45px;
@@ -94,7 +94,7 @@ header .logo {
 }
 
 body {
-        background: url("images/bg_noise.jpg") repeat 0 0;
+        background: url("bg_noise.jpg") repeat 0 0;
         padding-top: 20px;
         padding-bottom: 60px;
         margin: 0 auto;
