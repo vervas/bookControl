@@ -1,14 +1,21 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>Bookcontrol</title>
-  <%= stylesheet_link_tag    "application", :media => "all" %>
-  <%= javascript_include_tag "application" %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
-
-<%= yield %>
-
-</body>
+  <head>
+    <title>BookControl 1.0 Beta</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=9">      
+    <meta charset="UTF-8">
+    <meta name="language" content="en" >
+    <!-- Bootstrap -->
+    <%= stylesheet_link_tag    "bootstrap", :media => "screen" %>
+    <%= stylesheet_link_tag    "application", :media => "screen" %>
+    <%= stylesheet_link_tag    "bootstrap-responsive" %>
+    <%= csrf_meta_tags %>
+  </head>
+  <body>
+    <%= yield %>
+    <%= javascript_include_tag "application" %>
+    <%= javascript_include_tag "bootstrap" %>
+  </body>
 </html>
