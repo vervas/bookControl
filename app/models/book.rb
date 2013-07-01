@@ -1,5 +1,8 @@
 class Book
   include Mongoid::Document
+
+  belongs_to :user
+
   field :isbn, type: String
   field :title, type: String
   field :author, type: String

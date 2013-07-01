@@ -7,7 +7,6 @@
     <th>Author</th>
     <th>Publisher</th>
     <th>Category</th>
-    <th>Img url</th>
     <th>Amazon link</th>
     <th>Proposal</th>
     <th></th>
@@ -17,13 +16,13 @@
 
 <% @books.each do |book| %>
   <tr>
+      <td><img width="100px" src='<%= book.img_url %>'/></td>
     <td><%= book.isbn %></td>
     <td><%= book.title %></td>
     <td><%= book.author %></td>
     <td><%= book.publisher %></td>
     <td><%= book.category %></td>
-    <td><%= book.img_url %></td>
-    <td><%= book.amazon_link %></td>
+    <td><a href='<%= book.amazon_link %>'>Amazon</a></td>
     <td><%= book.proposal %></td>
     <td><%= link_to 'Show', book %></td>
     <td><%= link_to 'Edit', edit_book_path(book) %></td>
