@@ -41,6 +41,7 @@ class ReservationsController < ApplicationController
   # POST /reservations.json
   def create
     @reservation = Reservation.new(params[:reservation])
+    puts "##### " + params[:reservation].inspect
 
     respond_to do |format|
       if @reservation.save
