@@ -83,8 +83,4 @@ test:
 production:
   sessions:
     default:
-      database: <%= "'#{ ENV['MONGO_DATABASE'] }'" %>
-      hosts:
-        - <%= "'#{ ENV['MONGO_HOSTNAME'] }'" %>
-      username: <%= "'#{ ENV['MONGO_USERNAME'] }'" %>
-      password: <%= "'#{ ENV['MONGO_PASSWORD'] }'" %>
+      uri: <%= "'#{ ENV['MONGOSOUP_URL'] }'" %>
