@@ -33,8 +33,8 @@
             <!-- .nav, .navbar-search, .navbar-form, etc -->
             <ul class="nav">
               <li><a href="#">Home</a></li>
-              <li><a href="#about">About</a></li>
-              <li><a href="#contact">Contact</a></li>
+              <li><a href="#about">Books</a></li>
+              <li><a href="#contact">Users</a></li>
               <li class="dropdown">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
                 <ul class="dropdown-menu">
@@ -53,10 +53,16 @@
               <input class="span2" type="password" placeholder="Password">
               <button type="submit" class="btn">Sign in</button>
             </form> -->
+            <%= if user_signed_in? =>
                 <%= form_for(resource, :as => resource_name, :url => session_path(resource_name), :html => { :class => 'navbar-form pull-right' }) do |f| %>
                 <%= f.email_field :email, :autofocus => true, :html => { :class => 'span2' } %>
                 <%= f.password_field :password, :html => { :class => 'span2' } %>
                 <%= f.submit "Sign in", :html => { :class => 'btn' } %>
+                <% end %>
+            <%= else %>
+                <ul class="nav">
+                    <li><a class="pull-right" href="#">Profile</a></li>
+                </ul>
             <% end %>
           </div>
      
