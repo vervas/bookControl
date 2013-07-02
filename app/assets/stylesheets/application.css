@@ -66,6 +66,10 @@ html.wooden {
   background: url("wood.png") repeat 0 0;
 }
 
+.contentwrapper {
+  margin: 0 auto;
+}
+
 header {
   padding: 10px 30px;
   margin: 40px 0 0 0;
@@ -92,6 +96,7 @@ header {
   overflow: hidden;
   text-indent: -999px;
   width: 55px;
+  margin: 5px 0px;
 }
 
 header .logo {
@@ -103,6 +108,8 @@ header .logo {
   text-indent: -999px;
   width: 117px;
 }
+
+.left { float:left;}
 
 body {
         background: url("bg_noise.jpg") repeat 0 0;

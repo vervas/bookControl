@@ -1,48 +1,33 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <img width="100px" src='<%= @book.img_url %>'/>
-</p>
+<div class="contentwrapper">
+  <div class="left"><img width="150px" src='<%= @book.img_url %>'/></div>
+  <div class="left">
+    <p><%= @book.author %></p>
+    <h3><%= @book.title %></h3>
+    <p><%= @book.category %></p>
+    <p><%= @book.category %></p>
+  </div>
+  <div class="left">
+    <% if user_signed_in? %>
+      <%= link_to 'Edit', edit_book_path(@book) %> |
+      <%= link_to 'Back', books_path %>
 
-<p>
-  <b>Isbn:</b>
-  <%= @book.isbn %>
-</p>
-
-<p>
-  <b>Title:</b>
-  <%= @book.title %>
-</p>
-
-<p>
-  <b>Author:</b>
-  <%= @book.author %>
-</p>
-
-<p>
-  <b>Publisher:</b>
-  <%= @book.publisher %>
-</p>
-
-<p>
-  <b>Category:</b>
-  <%= @book.category %>
-</p>
-
-<p>
-<a href='<%= @book.amazon_link %>'>Amazon link</a>
-  
-</p>
-
-<p>
-  <b>Proposal:</b>
-  <%= @book.proposal %>
-</p>
-
-
-<%= link_to 'Edit', edit_book_path(@book) %> |
-<%= link_to 'Back', books_path %>
-
-<% if BooksHelper.available @book.id %>
-<%= button_to "ADD", { :controller => "reservations", :action => "create", :reservation => {:book_id => @book.id, :user_id => current_user.id, :begin_date => Time.now }}, :method => "post" %>
-<% end %>
+      <% if BooksHelper.available @book.id %>
+      <%= button_to "Check Out", { :controller => "reservations", :action => "create", :reservation => {:book_id => @book.id, :user_id => current_user.id, :begin_date => Time.now }}, :method => "post" %>
+      <% end %>
+    <% end %>
+  </div>
+  <div class="clearfix">
+    <p>
+      <b>Isbn:</b> <%= @book.isbn %>
+    </p>
+    <p>
+      <b>Owner:</b> Dummyowner Dimitris <br />
+      <a href='<%= @book.amazon_link %>'>Read details at amazon</a>
+    </p>
+    <p>
+    <b>Proposal:</b> <%= @book.proposal %>
+    </p>
+  </div>
+</div>
