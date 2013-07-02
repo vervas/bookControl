@@ -143,7 +143,9 @@ body {
       .marketing p + h4 {
         margin-top: 28px;
       }
-
+      a.brand, a.brand:focus, a.brand:hover, a.brand:focus {
+        background-color: transparent;
+      }
 
       /* Customize the navbar links to be fill the entire space of the .navbar */
       /*.navbar .navbar-inner {
