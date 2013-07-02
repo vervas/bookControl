@@ -20,11 +20,13 @@
     <td><%= book.publisher %></td>
     <td><%= book.category %></td>
     <td>
-      <%= link_to '<i class="icon-search"></i>'.html_safe, book %> 
-      <%= link_to '<i class="icon-pencil"></i>'.html_safe, edit_book_path(book) %> 
-      <%= link_to '<i class="icon-trash"></i>'.html_safe, book, method: :delete, data: { confirm: 'Are you sure?' } %>
-      <% if BooksHelper.available book.id %>
-        <%= link_to '<i class="icon-shopping-cart"></i>'.html_safe, { :controller => "reservations", :action => "create", :reservation => {:book_id => book.id, :user_id => current_user.id, :begin_date => Time.now }}, :method => "post" %>
+      <% if user_signed_in? %>
+        <%= link_to '<i class="icon-search"></i>'.html_safe, book %> 
+        <%= link_to '<i class="icon-pencil"></i>'.html_safe, edit_book_path(book) %> 
+        <%= link_to '<i class="icon-trash"></i>'.html_safe, book, method: :delete, data: { confirm: 'Are you sure?' } %>
+        <% if BooksHelper.available book.id %>
+          <%= link_to '<i class="icon-shopping-cart"></i>'.html_safe, { :controller => "reservations", :action => "create", :reservation => {:book_id => book.id, :user_id => current_user.id, :begin_date => Time.now }}, :method => "post" %>
+        <% end %>
       <% end %>
     </td>
   </tr>
