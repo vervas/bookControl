@@ -151,6 +151,10 @@ body {
         width: 50px;
       }
 
+      td {
+        vertical-align:middle;
+      }
+
       /* Customize the navbar links to be fill the entire space of the .navbar */
       /*.navbar .navbar-inner {
         padding: 0;
