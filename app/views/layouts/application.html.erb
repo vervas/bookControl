@@ -55,16 +55,16 @@
               <button type="submit" class="btn">Sign in</button>
             </form> -->
             <% if not user_signed_in? %>
-                <%= form_for(resource, :as => resource_name, :url => session_path(resource_name), :html => { :class => 'navbar-form pull-right' }) do |f| %>
-                <%= f.email_field :email, :autofocus => true, :html => { :class => 'span2' } %>
-                <%= f.password_field :password, :html => { :class => 'span2' } %>
-                <%= f.submit "Sign in", :html => { :class => 'btn' } %>
+                <%= form_for("user", :url => user_session_path, :html => { :class => 'navbar-form pull-right' } ) do |f| %>
+                    <%= f.email_field :email, :autofocus => true, :class => 'span2', :placeholder => "Email" %>
+                <%= f.password_field :password, :class => 'span2', :placeholder => "Password" %>
+                <%= f.submit "Sign in", :class => 'btn' %>
                 <% end %>
             <% else %>
                 <ul class="nav">
                     <li><a class="pull-right" href="#">Profile</a></li>
                 </ul>
-            <% end %>
+            <% end %> 
           </div>
      
         </div>
