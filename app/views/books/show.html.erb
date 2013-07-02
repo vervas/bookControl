@@ -6,6 +6,16 @@
     <p><%= @book.author %></p>
     <h2><%= @book.title %></h2>
     <p><%= @book.publisher %><br /><%= @book.category %></p>
+    <p>
+      <b>Isbn:</b> <%= @book.isbn %>
+    </p>
+    <p>
+      <b>Owner:</b> Dummyowner Dimitris <br />
+      <a href='<%= @book.amazon_link %>'>Read details at amazon</a>
+    </p>
+    <p>
+    <b>Proposal:</b> <%= @book.proposal %>
+    </p>
   </div>
   <div class="left">
     <% if user_signed_in? %>
@@ -18,16 +28,4 @@
     <% end %>
   </div>
   <div class="clearer"></div>
-  <div>
-    <p>
-      <b>Isbn:</b> <%= @book.isbn %>
-    </p>
-    <p>
-      <b>Owner:</b> Dummyowner Dimitris <br />
-      <a href='<%= @book.amazon_link %>'>Read details at amazon</a>
-    </p>
-    <p>
-    <b>Proposal:</b> <%= @book.proposal %>
-    </p>
-  </div>
 </div>
