@@ -147,6 +147,10 @@ body {
         background-color: transparent;
       }
 
+      table tr td img {
+        width: 50px;
+      }
+
       /* Customize the navbar links to be fill the entire space of the .navbar */
       /*.navbar .navbar-inner {
         padding: 0;
