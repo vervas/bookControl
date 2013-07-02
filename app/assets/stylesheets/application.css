@@ -114,6 +114,9 @@ header .logo {
   float:left;
   padding: 15px;
 }
+.left h2 {
+  margin-top: 0px;
+}
 
 body {
         background: url("bg_noise.jpg") repeat 0 0;

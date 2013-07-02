@@ -3,15 +3,13 @@
 <div class="contentwrapper">
   <div class="left"><img width="150px" src='<%= @book.img_url %>'/></div>
   <div class="left">
-    <p>
-      <%= @book.author %>
-      <h3><%= @book.title %></h3>
-    </p>
-    <p><%= @book.category %></p>
+    <p><%= @book.author %></p>
+    <h2><%= @book.title %></h2>
+    <p><%= @book.publisher %><br /><%= @book.category %></p>
   </div>
   <div class="left">
     <% if user_signed_in? %>
-      <%= link_to 'Edit', edit_book_path(@book) %> |
+      <%= link_to '<i class="icon-pencil"></i> Edit'.html_safe, edit_book_path(@book) %> |
       <%= link_to 'Back', books_path %>
 
       <% if BooksHelper.available @book.id %>
