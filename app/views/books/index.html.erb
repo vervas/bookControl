@@ -6,9 +6,9 @@
   <tr>
     <th></th>
     <th>Title</th>
-    <th>Author</th>
-    <th>Publisher</th>
-    <th>Category</th>
+    <th class="hidden-phone">Author</th>
+    <th class="hidden-phone">Publisher</th>
+    <th class="hidden-phone">Category</th>
     <th></th>
   </tr>
 
@@ -16,9 +16,9 @@
   <tr>
     <td><a href='<%= book.amazon_link %>'><img width="50px" src='<%= book.img_url %>'/></a></td>
     <td><%= link_to book.title, book %></td>
-    <td><%= book.author %></td>
-    <td><%= book.publisher %></td>
-    <td><%= book.category %></td>
+    <td class="hidden-phone"><%= book.author %></td>
+    <td class="hidden-phone"><%= book.publisher %></td>
+    <td class="hidden-phone"><%= book.category %></td>
     <td>
       <% if user_signed_in? %>
         <%= link_to '<i class="icon-search"></i>'.html_safe, book %> 
