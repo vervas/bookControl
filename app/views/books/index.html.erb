@@ -5,24 +5,20 @@
 <table class="table table-striped">
   <tr>
     <th></th>
-    <th>Isbn</th>
     <th>Title</th>
     <th>Author</th>
     <th>Publisher</th>
     <th>Category</th>
-    <th>Proposal</th>
     <th></th>
   </tr>
 
 <% @books.each do |book| %>
   <tr>
     <td><a href='<%= book.amazon_link %>'><img width="50px" src='<%= book.img_url %>'/></a></td>
-    <td><%= book.isbn %></td>
     <td><a href='<%= book.amazon_link %>'><%= book.title %></a></td>
     <td><%= book.author %></td>
     <td><%= book.publisher %></td>
     <td><%= book.category %></td>
-    <td><%= book.proposal %></td>
     <td>
       <%= link_to '<i class="icon-search"></i>'.html_safe, book %> 
       <%= link_to '<i class="icon-pencil"></i>'.html_safe, edit_book_path(book) %> 
