@@ -3,9 +3,10 @@
 <div class="contentwrapper">
   <div class="left"><img width="150px" src='<%= @book.img_url %>'/></div>
   <div class="left">
-    <p><%= @book.author %></p>
-    <h3><%= @book.title %></h3>
-    <p><%= @book.category %></p>
+    <p>
+      <%= @book.author %>
+      <h3><%= @book.title %></h3>
+    </p>
     <p><%= @book.category %></p>
   </div>
   <div class="left">
@@ -18,7 +19,8 @@
       <% end %>
     <% end %>
   </div>
-  <div class="clearfix">
+  <div class="clearer"></div>
+  <div>
     <p>
       <b>Isbn:</b> <%= @book.isbn %>
     </p>

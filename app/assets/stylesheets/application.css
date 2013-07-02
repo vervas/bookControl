@@ -70,6 +70,7 @@ html.wooden {
   margin: 0 auto;
 }
 
+.clearer { clear:both;}
 header {
   padding: 10px 30px;
   margin: 40px 0 0 0;
@@ -109,7 +110,10 @@ header .logo {
   width: 117px;
 }
 
-.left { float:left;}
+.left { 
+  float:left;
+  padding: 15px;
+}
 
 body {
         background: url("bg_noise.jpg") repeat 0 0;
