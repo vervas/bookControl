@@ -26,28 +26,16 @@
           </a>
      
           <!-- Be sure to leave the brand out there if you want it shown -->
-          <a class="brand" href="#">bookControl</a>
+          <%= link_to "bookControl", home_path, :html => { :class => 'brand' } %>
      
           <!-- Everything you want hidden at 940px or less, place within here -->
           <div class="nav-collapse collapse">
             <!-- .nav, .navbar-search, .navbar-form, etc -->
             <ul class="nav">
-              <li><a href="#">Home</a></li>
-              <li><a href="#about">Books</a></li>
-              <li><a href="#contact">Users</a></li>
-              <li><a href="#contact">Users</a></li>
-              <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
-                <ul class="dropdown-menu">
-                  <li><a href="#">Action</a></li>
-                  <li><a href="#">Another action</a></li>
-                  <li><a href="#">Something else here</a></li>
-                  <li class="divider"></li>
-                  <li class="nav-header">Nav header</li>
-                  <li><a href="#">Separated link</a></li>
-                  <li><a href="#">One more separated link</a></li>
-                </ul>
-              </li>
+              <li><%= link_to "Home", home_path %></li>
+              <li><%= link_to "Books", books_path %></li>
+              <li><%= link_to "Users", users_path %></li>
+              <li><%= link_to "Reservations", reservations_path %></li>
             </ul>
            <!--  <form class="navbar-form pull-right">
               <input class="span2" type="text" placeholder="Email">
@@ -61,9 +49,20 @@
                 <%= f.submit "Sign in", :class => 'btn' %>
                 <% end %>
             <% else %>
-                <ul class="nav">
-                    <li><a class="pull-right" href="#">Profile</a></li>
+              <ul class="nav">
+                <li class="dropdown">
+                <a href="#" class="dropdown-toggle pull-right" data-toggle="dropdown">Profile <b class="caret"></b></a>
+                <ul class="dropdown-menu">
+                  <li><%= link_to 'Profile', user_path(current_user.id) %></li>
+                  <li><%= link_to 'Add Book', new_book_path %></li>
+                  <li><a href="#">Propose Book</a></li>
+                  <li><a href="#">Your Books</a></li>
+                  <li><a href="#">Your Reservations</a></li>
+                  <li class="divider"></li>
+                  <li><%= link_to 'Logout', sign_out_path %></li>
                 </ul>
+              </li>
+              </ul>
             <% end %> 
           </div>
      
