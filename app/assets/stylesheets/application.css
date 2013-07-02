@@ -73,6 +73,7 @@ header {
   border-left: 10px solid #d9d9d9;
   border-bottom: none;
   background-color: #ffffff;
+  height: 45px;
   -webkit-border-radius: 0 5px 0 0;
   -moz-border-radius: 0 5px 0 0;
   -ms-border-radius: 0 5px 0 0;
@@ -83,7 +84,7 @@ header {
   border-radius: 0 5px 0 0;
 }
 
-header .logo {
+.logo {
   background: url("logo.png") no-repeat;
   background-size: 75px;
   display: inline-block;
