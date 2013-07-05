@@ -1,3 +1,4 @@
+
 class ReservationsController < ApplicationController
   # GET /reservations
   # GET /reservations.json
@@ -41,11 +42,10 @@ class ReservationsController < ApplicationController
   # POST /reservations.json
   def create
     @reservation = Reservation.new(params[:reservation])
-    puts "##### " + params[:reservation].inspect
 
     respond_to do |format|
       if @reservation.save
-        format.html { redirect_to @reservation, notice: 'Reservation was successfully created.' }
+        format.html { redirect_to :back, notice: 'Reservation was successfully created.' }
         format.json { render json: @reservation, status: :created, location: @reservation }
       else
         format.html { render action: "new" }
@@ -61,7 +61,7 @@ class ReservationsController < ApplicationController
 
     respond_to do |format|
       if @reservation.update_attributes(params[:reservation])
-        format.html { redirect_to @reservation, notice: 'Reservation was successfully updated.' }
+        format.html { redirect_to :back, notice: 'Reservation was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }
