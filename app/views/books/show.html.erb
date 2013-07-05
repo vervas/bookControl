@@ -11,23 +11,27 @@
     </p>
     <p>
       <b>Owner:</b> Dummyowner Dimitris <br />
-      <a href='<%= @book.amazon_link %>'>Read details at amazon</a>
+      <% if @book.amazon_link.length > 0 %><a href='<%= @book.amazon_link %>'>Read details at amazon</a><% end %>
     </p>
     <p>
     <b>Proposal:</b> <%= @book.proposal %>
     </p>
+    <% if (reservation = BooksHelper.isReserved @book.id, current_user.id) %>
+    <p>
+      <b>You reserve this book since:</b> <%= Time.diff(Time.now, reservation.begin_date)[:diff] %>
+    </p>
+    <% end %>
   </div>
   <div class="left">
     <% if user_signed_in? %>
       <%= link_to '<i class="icon-pencil"></i> Edit'.html_safe, edit_book_path(@book) %> |
-      <%= link_to 'Back', books_path %>
-
       <% if BooksHelper.available @book.id %>
-      <%= button_to "Check Out", { :controller => "reservations", :action => "create", :reservation => {:book_id => @book.id, :user_id => current_user.id, :begin_date => Time.now }}, :method => "post" %>
+        <%= link_to '<i class="icon-shopping-cart"></i> Reserve'.html_safe, { :controller => "reservations", :action => "create", :reservation => {:book_id => @book.id, :user_id => current_user.id, :begin_date => Time.now }}, :method => "post" %> |
       <% end %>
       <% if (reservation = BooksHelper.isReserved @book.id, current_user.id) %>
-      <%= button_to "Release", { :controller => "reservations", :action => "update", :id => reservation.id, :reservation => {:book_id => @book.id, :user_id => current_user.id, :return_date => Time.now }}, :method => "put" %>
+        <%= link_to '<i class="icon-retweet"></i> Release'.html_safe, { :controller => "reservations", :action => "update", :id => reservation.id, :reservation => {:book_id => @book.id, :user_id => current_user.id, :return_date => Time.now }}, :method => "put" %> |
       <% end %>
+      <%= link_to 'Back', books_path %>
     <% end %>
   </div>
   <div class="clearer"></div>

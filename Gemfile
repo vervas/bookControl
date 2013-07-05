@@ -39,3 +39,5 @@ gem 'jquery-rails'
 
 # To use debugger
 # gem 'debugger'
+
+gem "time_diff", "~> 0.3.0"
