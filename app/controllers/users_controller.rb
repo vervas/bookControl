@@ -1,6 +1,9 @@
 class UsersController < ApplicationController
   before_filter :authenticate_user!
 
+  # a before filter requires an un-authenticated session in order to create a new user registration.
+  skip_before_filter :require_no_authentication, :only => [:new, :create]
+
   # GET /users
   # GET /users.json
   def index
@@ -58,6 +61,11 @@ class UsersController < ApplicationController
   # PUT /users/1
   # PUT /users/1.json
   def update
+    if params[:user][:password].blank?
+      params[:user].delete("password")
+      params[:user].delete("password_confirmation")
+    end
+
     @user = User.find(params[:id])
 
     respond_to do |format|

@@ -3,9 +3,9 @@
 Welcome to your library
 </p>
 <p>
+<% if current_user == nil %>
 <%= link_to "Sign in", users_path %>
-</p>
-
-<p>
+<% else %>
 <%= link_to "Books", books_path %>
+<% end %>
 </p>
