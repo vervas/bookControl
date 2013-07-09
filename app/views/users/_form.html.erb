@@ -30,10 +30,10 @@
     <%= f.label :password_confirmation %><br />
     <%= f.password_field :password_confirmation %>
   </div>
-  <% if current_user.role != "editor" %>
   <div class="field">
   <%= f.select(:role, User::ROLES) %>
   </div>
+  <% if current_user.role != "editor" %>
   <% end %>
   <div class="actions">
     <%= f.submit %>

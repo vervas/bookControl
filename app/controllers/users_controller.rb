@@ -1,9 +1,6 @@
 class UsersController < ApplicationController
   before_filter :authenticate_user!
 
-  # a before filter requires an un-authenticated session in order to create a new user registration.
-  skip_before_filter :require_no_authentication, :only => [:new, :create]
-
   # GET /users
   # GET /users.json
   def index
@@ -30,7 +27,6 @@ class UsersController < ApplicationController
   # GET /users/new.json
   def new
     @user = User.new
-    authorize! :create, @user, :message => "Unable to create new user."
 
     respond_to do |format|
       format.html # new.html.erb
@@ -47,7 +43,6 @@ class UsersController < ApplicationController
   # POST /users.json
   def create
     @user = User.new(params[:user])
-    authorize! :create, @user, :message => "Unable to create new user."
 
     respond_to do |format|
       if @user.save
@@ -71,9 +66,9 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     authorize! :update, @user, :message => "Unable to edit user."
 
-    if params[:user][:role] and current_user.role == "editor"
-      params[:user].delete("role")
-    end
+    #if params[:user][:role] and current_user.role == "editor"
+    #  params[:user].delete("role")
+    #end
     
     respond_to do |format|
       if @user.update_attributes(params[:user])

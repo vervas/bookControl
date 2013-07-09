@@ -3,7 +3,7 @@ Bookcontrol::Application.routes.draw do
 
   get "home/index"
 
-  devise_for :users, :controllers => {:registrations => "users"}
+  devise_for :users
 
   resources :users
   resources :books
