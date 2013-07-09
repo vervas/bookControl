@@ -66,9 +66,9 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     authorize! :update, @user, :message => "Unable to edit user."
 
-    #if params[:user][:role] and current_user.role == "editor"
-    #  params[:user].delete("role")
-    #end
+    if params[:user][:role] and current_user.role == "editor"
+      params[:user].delete("role")
+    end
     
     respond_to do |format|
       if @user.update_attributes(params[:user])

@@ -2,7 +2,6 @@
   <% if @user.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
-
       <ul>
       <% @user.errors.full_messages.each do |msg| %>
         <li><%= msg %></li>
@@ -30,10 +29,10 @@
     <%= f.label :password_confirmation %><br />
     <%= f.password_field :password_confirmation %>
   </div>
+  <% if current_user and current_user.role != "editor" %>
   <div class="field">
   <%= f.select(:role, User::ROLES) %>
   </div>
-  <% if current_user.role != "editor" %>
   <% end %>
   <div class="actions">
     <%= f.submit %>
