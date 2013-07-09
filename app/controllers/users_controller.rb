@@ -30,6 +30,7 @@ class UsersController < ApplicationController
   # GET /users/new.json
   def new
     @user = User.new
+    authorize! :create, @user, :message => "Unable to create new user."
 
     respond_to do |format|
       format.html # new.html.erb
@@ -46,6 +47,7 @@ class UsersController < ApplicationController
   # POST /users.json
   def create
     @user = User.new(params[:user])
+    authorize! :create, @user, :message => "Unable to create new user."
 
     respond_to do |format|
       if @user.save
@@ -67,7 +69,12 @@ class UsersController < ApplicationController
     end
 
     @user = User.find(params[:id])
+    authorize! :update, @user, :message => "Unable to edit user."
 
+    if params[:user][:role] and current_user.role == "editor"
+      params[:user].delete("role")
+    end
+    
     respond_to do |format|
       if @user.update_attributes(params[:user])
         format.html { redirect_to @user, notice: 'User was successfully updated.' }
@@ -83,8 +90,9 @@ class UsersController < ApplicationController
   # DELETE /users/1.json
   def destroy
     @user = User.find(params[:id])
-    @user.destroy
+    authorize! :update, @user, :message => "Unable to delete user."
 
+    @user.destroy
     respond_to do |format|
       format.html { redirect_to users_url }
       format.json { head :no_content }

@@ -3,20 +3,22 @@ class Ability
 
   def initialize(user)
     @user = user || User.new # for guest
-    send(@user.role)
+    send(@user.role, user)
   end
 
-  def editor
+  def editor user
     can :manage, Book
+    can :read, user
+    can :manage, user, :id => user.id
   end
 
-  def admin
-    editor
+  def admin user
+    editor user
     can :manage, User
   end
 
-  def superadmin
-    admin
+  def superadmin user
+    admin user
     can :manage, :all
   end
 end

@@ -13,4 +13,11 @@ module BooksHelper
       and(:return_date => nil)
      return reservations.first if reservations.count > 0
   end
+  
+  def self.getReservedBooks(user_id)
+    reservations = Reservation.
+      where(:user_id => user_id.to_s).
+      and(:return_date => nil)
+    return reservations.map { |r| Book.where(_id: r.book_id).first }
+  end
 end
