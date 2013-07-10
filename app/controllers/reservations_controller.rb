@@ -5,8 +5,18 @@ class ReservationsController < ApplicationController
   # GET /reservations
   # GET /reservations.json
   def index
-    @reservations = Reservation.all
-
+    authorize! :read, Reservation, :message => "Unable to list reservations."
+    
+    if params[:open]
+      @reservations = Reservation.where(:return_date => nil).recent
+    elsif params[:book_id]
+      @reservations = Reservation.where(:book_id => params[:book_id]).recent
+    elsif params[:user_id]
+      @reservations = Reservation.where(:user_id => params[:user_id]).recent
+    else 
+      @reservations = Reservation.all.recent
+    end
+    @reservations = @reservations.map { |r| {:reservation => r, :book => Book.find(r.book_id), :user => User.find(r.user_id)} } 
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @reservations }
@@ -16,11 +26,14 @@ class ReservationsController < ApplicationController
   # GET /reservations/1
   # GET /reservations/1.json
   def show
-    @reservation = Reservation.find(params[:id])
+    authorize! :read, Reservation, :message => "Unable to show reservation."
+
+    r = Reservation.find(params[:id])
+    @r = {:reservation => r, :book => Book.find(r.book_id), :user => User.find(r.user_id)}
 
     respond_to do |format|
       format.html # show.html.erb
-      format.json { render json: @reservation }
+      format.json { render json: @r }
     end
   end
 
@@ -28,7 +41,8 @@ class ReservationsController < ApplicationController
   # GET /reservations/new.json
   def new
     @reservation = Reservation.new
-
+    authorize! :create, Reservation, :message => "Unable to create reservation."
+    
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @reservation }
@@ -44,7 +58,8 @@ class ReservationsController < ApplicationController
   # POST /reservations.json
   def create
     @reservation = Reservation.new(params[:reservation])
-
+    authorize! :create, Reservation, :message => "Unable to create reservation."
+    
     respond_to do |format|
       if @reservation.save
         format.html { redirect_to :back, notice: 'Reservation was successfully created.' }
@@ -59,6 +74,8 @@ class ReservationsController < ApplicationController
   # PUT /reservations/1
   # PUT /reservations/1.json
   def update
+    authorize! :update, Reservation, :message => "Unable to update reservation."
+
     @reservation = Reservation.find(params[:id])
 
     respond_to do |format|
@@ -75,6 +92,8 @@ class ReservationsController < ApplicationController
   # DELETE /reservations/1
   # DELETE /reservations/1.json
   def destroy
+    authorize! :delete, Reservation, :message => "Unable to delete reservation."
+
     @reservation = Reservation.find(params[:id])
     @reservation.destroy
 

@@ -6,4 +6,5 @@ class Reservation
 
   has_many :books
   has_many :users
+  scope :recent, order_by(:begin_date => :desc)
 end

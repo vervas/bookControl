@@ -10,6 +10,7 @@ class Ability
     can :manage, Book
     can :read, user
     can :manage, user, :id => user.id
+    can [:create, :update], Reservation
   end
 
   def admin user

@@ -20,10 +20,10 @@
         <%= link_to '<i class="icon-search"></i>'.html_safe, book %> 
         <%= link_to '<i class="icon-pencil"></i>'.html_safe, edit_book_path(book) %> 
         <%= link_to '<i class="icon-trash"></i>'.html_safe, book, method: :delete, data: { confirm: 'Are you sure?' } %>
-        <% if BooksHelper.available book.id %>
+        <% if ReservationsHelper.isBookAvailable book.id %>
           <%= link_to '<i class="icon-shopping-cart"></i> Reserve'.html_safe, { :controller => "reservations", :action => "create", :reservation => {:book_id => book.id, :user_id => current_user.id, :begin_date => Time.now }}, :method => "post" %>
         <% end %>
-        <% if (reservation = BooksHelper.isReserved book.id, current_user.id) %>
+        <% if (reservation = ReservationsHelper.isBookReserved book.id, current_user.id) %>
           <%= link_to '<i class="icon-retweet"></i> Release'.html_safe, { :controller => "reservations", :action => "update", :id => reservation.id, :reservation => {:book_id => book.id, :user_id => current_user.id, :return_date => Time.now }}, :method => "put" %>
         <% end %>
       <% end %>
